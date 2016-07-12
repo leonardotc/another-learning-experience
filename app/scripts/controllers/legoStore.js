@@ -51,18 +51,12 @@ angular.module('directivesQuizApp')
       }
     };
 
-    self.countBricks = function() {
-      var total = 0;
-      for (var color in self.bricks) {
-        for (var size in self.bricks[color]) {
-          total += self.bricks[color][size].quantity;
-        }
-      }
-
-      return total;
+    this.buy = function(item) {
+      if (item.quantity) item.quantity--;
     };
 
-    self.countColors = function() {
-      return Object.keys(self.bricks).length
-    }
-  });
+    this.return = function(item) {
+      item.quantity++;
+    };
+
+});

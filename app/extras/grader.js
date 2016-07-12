@@ -9,6 +9,7 @@ try {
   buyButton.click();
   buyButton.click();
 
+    console.log(brick.classList);
   if (brick.classList.toString().indexOf('low-stock') >= 0) {
     itemsShouldBeReturned = true;
     window.dispatchEvent(new CustomEvent('buy-button-works', {'detail': 'passed'}));
