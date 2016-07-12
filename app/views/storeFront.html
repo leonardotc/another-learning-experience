@@ -1,0 +1,7 @@
+<h1 id="storeHeading">{{store.name}}</h1>
+<table>
+  <tr ng-repeat="brick in store.bricks">
+    <td>{{brick}}</td>
+  </tr>
+</table>
+<p>Total of colors: <span ng-bind="store.countColors()" id="brickColors"></span></p>

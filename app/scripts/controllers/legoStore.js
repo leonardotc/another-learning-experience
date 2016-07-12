@@ -2,9 +2,11 @@
 
 angular.module('directivesQuizApp')
   .controller('legoStore', function() {
-    this.name = 'Udaci-Block Superstore';
-    this.brickColors = ['Black', 'Red', 'Rust', 'Salmon', 'Dark Tan', 'Earth Orange', 'Orange', 'Yellow', 'Lime', 'Green', 'Aqua', 'Blue', 'Dark Azure', 'Violet', 'Magenta', 'Bright Pink'];
-    this.bricks = {
+    var self = this;
+
+    self.name = 'Udaci-Block Superstore';
+    self.brickColors = ['Black', 'Red', 'Rust', 'Salmon', 'Dark Tan', 'Earth Orange', 'Orange', 'Yellow', 'Lime', 'Green', 'Aqua', 'Blue', 'Dark Azure', 'Violet', 'Magenta', 'Bright Pink'];
+    self.bricks = {
       Red: {
         '1x1': {
           quantity: 13,
@@ -48,4 +50,19 @@ angular.module('directivesQuizApp')
         }
       }
     };
+
+    self.countBricks = function() {
+      var total = 0;
+      for (var color in self.bricks) {
+        for (var size in self.bricks[color]) {
+          total += self.bricks[color][size].quantity;
+        }
+      }
+
+      return total;
+    };
+
+    self.countColors = function() {
+      return Object.keys(self.bricks).length
+    }
   });
